@@ -8,7 +8,9 @@ import java.util.HashSet;
 
 import edu.mit.ll.cloud.connection.ConnectionProperties;
 import edu.mit.ll.d4m.db.cloud.*;
-import org.apache.log4j.Logger;
+//import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -23,7 +25,7 @@ import edu.mit.ll.d4m.db.cloud.util.D4mDataObj;
  */
 public class D4mQueryTest10 {
 
-	private static final Logger log = Logger.getLogger(D4mQueryTest10.class);
+	private static final Logger log = LoggerFactory.getLogger(D4mQueryTest10.class);
 
 	String instanceName = "";
 	String host = "";

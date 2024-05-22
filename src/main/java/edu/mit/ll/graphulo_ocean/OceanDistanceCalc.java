@@ -14,9 +14,10 @@ import org.apache.accumulo.core.client.IteratorSetting;
 import org.apache.accumulo.core.client.security.tokens.AuthenticationToken;
 import org.apache.accumulo.core.iterators.Combiner;
 import org.apache.accumulo.core.iterators.IteratorUtil;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
-
+//import org.apache.log4j.LogManager;
+//import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import java.util.ArrayList;
 import java.util.EnumSet;
 import java.util.HashMap;
@@ -37,7 +38,7 @@ import static edu.mit.ll.graphulo_ocean.OceanIngestKMers.setupTXE1Connector;
  * for complete pre-summing.
  */
 public class OceanDistanceCalc {
-  private static final Logger log = LogManager.getLogger(OceanDistanceCalc.class);
+  private static final Logger log = LoggerFactory.getLogger(OceanDistanceCalc.class);
 
   public static void main(String[] args) {
     new OceanDistanceCalc().execute(args);

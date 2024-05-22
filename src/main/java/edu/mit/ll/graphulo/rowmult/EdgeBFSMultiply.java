@@ -4,9 +4,10 @@ import org.apache.accumulo.core.data.ByteSequence;
 import org.apache.accumulo.core.data.Key;
 import org.apache.accumulo.core.data.Value;
 import org.apache.accumulo.core.iterators.IteratorEnvironment;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
-
+//import org.apache.log4j.LogManager;
+//import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.AbstractMap;
@@ -17,7 +18,7 @@ import java.util.Map;
  * Used for Incidence Table Breadth First Search.
  */
 public class EdgeBFSMultiply implements MultiplyOp, Iterator<Map.Entry<Key,Value>> {
-  private static final Logger log = LogManager.getLogger(EdgeBFSMultiply.class);
+  private static final Logger log = LoggerFactory.getLogger(EdgeBFSMultiply.class);
 
   public static final String NEW_VISIBILITY = "newVisibility", USE_NEW_VISIBILITY = "useNewVisibility",
     USE_NEW_TIMESTAMP = "useNewTimestamp";

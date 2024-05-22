@@ -10,9 +10,10 @@ import org.apache.accumulo.core.data.Range;
 import org.apache.accumulo.core.data.Value;
 import org.apache.accumulo.core.iterators.IteratorEnvironment;
 import org.apache.accumulo.core.iterators.SortedKeyValueIterator;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
-
+//import org.apache.log4j.LogManager;
+//import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import java.io.IOException;
 import java.util.Collection;
 import java.util.Map;
@@ -24,7 +25,7 @@ import java.util.TreeMap;
  * Designed to be used at full major compaction so that it sees all the entries.
  */
 public class InverseMatrixIterator implements SortedKeyValueIterator<Key,Value> {
-  private static final Logger log = LogManager.getLogger(MapIterator.class);
+  private static final Logger log = LoggerFactory.getLogger(MapIterator.class);
 
   public static final String MATRIX_SIZE = "matrixSize", NUMITERATIONS = "numIterations";
 

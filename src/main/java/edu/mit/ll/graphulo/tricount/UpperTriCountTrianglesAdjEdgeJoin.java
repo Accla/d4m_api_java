@@ -9,8 +9,6 @@ import org.apache.accumulo.core.data.Value;
 import org.apache.accumulo.core.iterators.IteratorEnvironment;
 import org.apache.accumulo.core.iterators.SortedKeyValueIterator;
 import org.apache.hadoop.io.WritableComparator;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
 
 import java.io.IOException;
 import java.util.AbstractMap;
@@ -29,7 +27,6 @@ import static edu.mit.ll.graphulo.util.GraphuloUtil.EMPTY_VALUE;
  * only when cq < cq' in the first four bytes.
  */
 public final class UpperTriCountTrianglesAdjEdgeJoin implements RowMultiplyOp {
-//  private static final Logger log = LogManager.getLogger(UpperTriCountTrianglesAdjEdgeJoin.class);
 
   @Override
   public void init(Map<String, String> options, IteratorEnvironment env) throws IOException {
@@ -88,7 +85,6 @@ public final class UpperTriCountTrianglesAdjEdgeJoin implements RowMultiplyOp {
 
 
   private final class UpperTriTwoIterator implements Iterator<Map.Entry<Key, Value>> {
-//    private static final Logger log = LogManager.getLogger(UpperTriTwoIterator.class);
 
     private final List<byte[]> BrowMap;
     private final PeekingIterator1<Key> itAonce;

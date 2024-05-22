@@ -12,9 +12,10 @@ import org.apache.accumulo.core.data.Mutation;
 import org.apache.accumulo.core.data.Value;
 import org.apache.commons.lang.StringUtils;
 import org.apache.hadoop.io.Text;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
-
+//import org.apache.log4j.LogManager;
+//import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -27,7 +28,7 @@ import static edu.mit.ll.graphulo_ndsi.NDSIGraphulo.PADSIZE_LATLON;
  * Ingest the NDSI dataset from a file into Accumulo.
  */
 public class NDSIIngester {
-  private static final Logger log = LogManager.getLogger(NDSIIngester.class);
+  private static final Logger log = LoggerFactory.getLogger(NDSIIngester.class);
 
   private Connector connector;
 

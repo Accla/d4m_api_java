@@ -16,9 +16,10 @@ import org.apache.accumulo.core.data.Mutation;
 import org.apache.accumulo.core.iterators.LongCombiner.Type;
 import org.apache.accumulo.core.iterators.user.SummingCombiner;
 import org.apache.hadoop.io.WritableComparator;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
-
+//import org.apache.log4j.LogManager;
+//import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FilenameFilter;
@@ -36,7 +37,7 @@ import static edu.mit.ll.graphulo.util.GraphuloUtil.EMPTY_BYTES;
 import static edu.mit.ll.graphulo.util.GraphuloUtil.VALUE_ONE_STRING_BYTES;
 
 public final class TriangleIngestor {
-  private static final Logger log = LogManager.getLogger(TriangleIngestor.class);
+  private static final Logger log = LoggerFactory.getLogger(TriangleIngestor.class);
   private static final FixedIntegerLexicoder LEX = new FixedIntegerLexicoder();
   private static final byte[] DEG_BYTES = "deg".getBytes(StandardCharsets.UTF_8);
   private static final byte[] IN_DEG_BYTES = "indeg".getBytes(StandardCharsets.UTF_8);

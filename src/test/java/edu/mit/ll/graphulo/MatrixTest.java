@@ -6,11 +6,12 @@ import org.apache.accumulo.core.data.Key;
 import org.apache.accumulo.core.data.Value;
 import org.apache.commons.math3.linear.MatrixUtils;
 import org.apache.commons.math3.linear.RealMatrix;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
+//import org.apache.log4j.LogManager;
+//import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.junit.Test;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import java.nio.charset.StandardCharsets;
 import java.util.Map;
 import java.util.SortedMap;
@@ -20,7 +21,7 @@ import java.util.TreeMap;
  * Test MemMatrixUtil
  */
 public class MatrixTest  {
-  private static final Logger log = LogManager.getLogger(MatrixTest.class);
+  private static final Logger log = LoggerFactory.getLogger(MatrixTest.class);
 
   @Test
   public void testInverseIdentity() {

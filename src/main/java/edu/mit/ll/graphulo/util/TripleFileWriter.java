@@ -15,9 +15,10 @@ import org.apache.accumulo.core.data.Value;
 import org.apache.accumulo.core.security.Authorizations;
 import org.apache.commons.lang.StringUtils;
 import org.apache.hadoop.io.Text;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
-
+//import org.apache.log4j.LogManager;
+//import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -31,7 +32,7 @@ import java.util.zip.GZIPInputStream;
  * Write row, column and (optionally) value files to a table.
  */
 public class TripleFileWriter {
-  private static final Logger log = LogManager.getLogger(TripleFileWriter.class);
+  private static final Logger log = LoggerFactory.getLogger(TripleFileWriter.class);
 
   private Connector connector;
 
@@ -108,7 +109,7 @@ public class TripleFileWriter {
         }
       }
     } catch (IOException e) {
-      log.warn("",e);
+      log.warn(" Bad config.basename: " +baseName,e);
       throw new RuntimeException(e);
     } finally {
       if (valScanner != null)
@@ -194,7 +195,7 @@ public class TripleFileWriter {
         }
       }
     } catch (IOException e) {
-      log.warn("",e);
+      log.warn(" Check rowfile - "+ rowFile.getName() + " , or  colfile - "+ colFile.getName() ,e);
       throw new RuntimeException(e);
     } finally {
       if (valScanner != null)

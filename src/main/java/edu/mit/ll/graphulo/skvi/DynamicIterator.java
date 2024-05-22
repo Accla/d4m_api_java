@@ -6,9 +6,10 @@ import org.apache.accumulo.core.data.Value;
 import org.apache.accumulo.core.iterators.IteratorEnvironment;
 import org.apache.accumulo.core.iterators.SortedKeyValueIterator;
 import org.apache.accumulo.core.iterators.WrappingIterator;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
-
+//import org.apache.log4j.LogManager;
+//import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import java.io.IOException;
 import java.util.EnumSet;
 import java.util.Map;
@@ -19,7 +20,7 @@ import java.util.Map;
  * @see edu.mit.ll.graphulo.DynamicIteratorSetting
  */
 public class DynamicIterator extends WrappingIterator {
-  private static final Logger log = LogManager.getLogger(DynamicIterator.class);
+  private static final Logger log = LoggerFactory.getLogger(DynamicIterator.class);
 
   @Override
   public void init(SortedKeyValueIterator<Key, Value> source, Map<String, String> options, IteratorEnvironment env) throws IOException {

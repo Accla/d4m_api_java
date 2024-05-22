@@ -12,9 +12,10 @@ import org.apache.accumulo.core.client.TableExistsException;
 import org.apache.accumulo.core.client.TableNotFoundException;
 import org.apache.accumulo.core.data.Mutation;
 import org.apache.hadoop.io.Text;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
-
+//import org.apache.log4j.LogManager;
+//import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -29,7 +30,7 @@ import static java.nio.charset.StandardCharsets.UTF_8;
  * The Accumulo row is the file name
  */
 public class CSVIngester {
-  private static final Logger log = LogManager.getLogger(CSVIngester.class);
+  private static final Logger log = LoggerFactory.getLogger(CSVIngester.class);
 
   private Connector connector;
 

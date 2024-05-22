@@ -4,9 +4,10 @@ import org.apache.accumulo.core.data.ByteSequence;
 import org.apache.accumulo.core.data.Key;
 import org.apache.accumulo.core.data.Value;
 import org.apache.accumulo.core.iterators.IteratorEnvironment;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
-
+//import org.apache.log4j.LogManager;
+//import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import java.io.IOException;
 import java.util.HashSet;
 import java.util.Map;
@@ -16,7 +17,7 @@ import java.util.Map;
  * Stores a set of the "in-node" part of rows reached in one step of BFS on a single-table schema.
  */
 public class SingleBFSReducer extends ReducerSerializable<HashSet<String>> {
-  private static final Logger log = LogManager.getLogger(SingleBFSReducer.class);
+  private static final Logger log = LoggerFactory.getLogger(SingleBFSReducer.class);
 
   public static final String EDGE_SEP = "edgeSep";
 //      NEG_ONE_IN_DEG = "copyDeg",

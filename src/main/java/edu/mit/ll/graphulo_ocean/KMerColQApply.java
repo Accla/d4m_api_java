@@ -9,9 +9,10 @@ import org.apache.accumulo.core.data.Key;
 import org.apache.accumulo.core.data.Range;
 import org.apache.accumulo.core.data.Value;
 import org.apache.accumulo.core.iterators.IteratorEnvironment;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
-
+//import org.apache.log4j.LogManager;
+//import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import java.io.IOException;
 import java.util.AbstractMap;
 import java.util.Collection;
@@ -27,7 +28,7 @@ import static java.nio.charset.StandardCharsets.UTF_8;
  * Generate entries for all the kmer-mers of the sequence in the column qualifier.
  */
 public class KMerColQApply implements ApplyOp {
-  private static final Logger log = LogManager.getLogger(KMerColQApply.class);
+  private static final Logger log = LoggerFactory.getLogger(KMerColQApply.class);
 
   public static final String KMER = "KMER";
 

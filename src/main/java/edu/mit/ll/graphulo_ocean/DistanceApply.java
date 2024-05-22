@@ -13,9 +13,10 @@ import org.apache.accumulo.core.iterators.IteratorEnvironment;
 import org.apache.accumulo.core.iterators.IteratorUtil;
 import org.apache.accumulo.core.security.Authorizations;
 import org.apache.hadoop.io.Text;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
-
+//import org.apache.log4j.LogManager;
+//import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.AbstractMap;
@@ -29,7 +30,7 @@ import java.util.Map;
  * No longer used since we are running Bray-Curtis on the relative abundances.
  */
 public class DistanceApply implements ApplyOp {
-  private static final Logger log = LogManager.getLogger(DistanceApply.class);
+  private static final Logger log = LoggerFactory.getLogger(DistanceApply.class);
 
   private void scanDegreeTable() throws IOException {
     remoteDegTable.seek(new Range(), Collections.<ByteSequence>emptySet(), false);

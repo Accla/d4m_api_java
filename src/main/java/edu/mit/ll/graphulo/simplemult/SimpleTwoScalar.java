@@ -9,9 +9,10 @@ import org.apache.accumulo.core.data.ByteSequence;
 import org.apache.accumulo.core.data.Key;
 import org.apache.accumulo.core.data.Value;
 import org.apache.accumulo.core.iterators.IteratorEnvironment;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
-
+//import org.apache.log4j.LogManager;
+//import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.AbstractMap.SimpleImmutableEntry;
@@ -42,7 +43,7 @@ import java.util.Map.Entry;
  * Has a newVisibility option for new Keys created with MultiplyOp or EWiseOp usage.
  */
 public abstract class SimpleTwoScalar extends KeyTwoScalar implements MultiplyOp, EWiseOp, Reducer {
-  private static final Logger log = LogManager.getLogger(SimpleTwoScalar.class);
+  private static final Logger log = LoggerFactory.getLogger(SimpleTwoScalar.class);
 
   public static final String NEW_VISIBILITY ="newVisibility", USE_NEW_VISIBILITY = "useNewVisibility";
   protected boolean useNewVisibility = false;

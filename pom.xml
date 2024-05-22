@@ -4,7 +4,7 @@
 
   <groupId>edu.mit.ll</groupId>
   <artifactId>graphulo</artifactId>
-  <version>3.1.2</version>
+  <version>3.3.0</version>
   <packaging>jar</packaging>
   <name>Graphulo</name>
   <description>
@@ -40,8 +40,8 @@
     <DBinit.path.libextZip>graphulo-${project.version}-libext</DBinit.path.libextZip>
     <test>TEST_CONFIG</test>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <accumulo.version>1.8.1</accumulo.version>
-    <accumulo.version.majorminor>1.8</accumulo.version.majorminor>
+    <accumulo.version>1.10.1</accumulo.version>
+    <accumulo.version.majorminor>1.10</accumulo.version.majorminor>
     <hadoop.version>2.7.2</hadoop.version>
     <htrace.version>3.1.0-incubating</htrace.version>
     <json.version>chargebee-1.0</json.version>
@@ -101,38 +101,52 @@
       <!--</plugin>-->
 
       <!-- FindBugs at verify lifecycle phase. Generate XML and HTML report. -->
-      <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>findbugs-maven-plugin</artifactId>
-        <version>3.0.2</version>
-        <configuration>
-          <xmlOutput>true</xmlOutput>
-          <effort>Max</effort>
-          <failOnError>false</failOnError>
+     <!--  <plugin> -->
+     <!--   <groupId>org.codehaus.mojo</groupId>  -->
+     <!--   <artifactId>findbugs-maven-plugin</artifactId>  -->
+     <!--   <version>3.0.2</version>  -->
+     <!--   <configuration>  -->
+     <!--     <xmlOutput>true</xmlOutput> -->
+     <!--     <effort>Max</effort> -->
+     <!--     <failOnError>false</failOnError>  -->
           <!--<threshold>Low</threshold>-->
-          <includeTests>true</includeTests>
+     <!--     <includeTests>true</includeTests> -->
           <!--<maxRank>16</maxRank>-->
-          <findbugsXmlOutputDirectory>${project.build.directory}/findbugs</findbugsXmlOutputDirectory>
-        </configuration>
-        <executions>
-          <execution>
-            <id>run-findbugs</id>
-            <phase>verify</phase>
-            <goals>
-              <goal>check</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
+     <!--     <findbugsXmlOutputDirectory>${project.build.directory}/findbugs</findbugsXmlOutputDirectory> -->
+     <!--   </configuration> -->
+     <!--   <executions> -->
+     <!--     <execution>  -->
+     <!--       <id>run-findbugs</id> -->
+     <!--       <phase>verify</phase> -->
+     <!--       <goals>  -->
+     <!--         <goal>check</goal>  -->
+     <!--       </goals>  -->
+     <!--     </execution>  -->
+     <!--   </executions>  -->
+     <!-- </plugin>  -->
 
+      <plugin>
+        <groupId>com.github.spotbugs</groupId>
+        <artifactId>spotbugs-maven-plugin</artifactId>
+        <version>4.8.1.0</version>
+        <dependencies>
+          <!-- overwrite dependency on spotbugs if you want to specify the version of spotbugs -->
+          <dependency>
+            <groupId>com.github.spotbugs</groupId>
+            <artifactId>spotbugs</artifactId>
+            <version>4.8.2</version>
+          </dependency>
+        </dependencies>
+      </plugin>
 
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.8.1</version>
+        <!-- <version>3.8.1</version> -->
+        <version>3.12.1</version>
         <configuration>
-          <source>1.8</source>
-          <target>1.8</target>
+           <source>1.8</source>
+           <target>1.8</target>
           <!--<compilerArgument>-Xlint:all</compilerArgument>-->
           <!--<showWarnings>true</showWarnings>-->
           <!--<showDeprecation>true</showDeprecation>-->
@@ -143,7 +157,8 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
-        <version>2.17</version>
+        <!-- <version>2.17</version>  -->
+        <version>3.2.5</version>
         <configuration>
           <redirectTestOutputToFile>true</redirectTestOutputToFile>
           <reportsDirectory>shippable/testresults</reportsDirectory>
@@ -157,7 +172,8 @@
           <dependency>
             <groupId>org.apache.maven.surefire</groupId>
             <artifactId>surefire-junit4</artifactId>
-            <version>2.17</version>
+            <!-- <version>2.17</version>  -->
+            <version>3.2.5</version>
           </dependency>
         </dependencies>
       </plugin>
@@ -210,6 +226,7 @@
                   <outputDirectory>${project.build.directory}/libext</outputDirectory>
                   <type>jar</type>
                   <includeScope>runtime</includeScope>
+                  <excludeGroupIds>log4j</excludeGroupIds>
                   <!-- Don't include the test scope - we don't need those classes for dependencies. -->
                   <!--<includeScope>compile</includeScope> Only adds the dep jdk-tools.jar, which has useless stuff provided by any jdk installation. -->
                 </configuration>
@@ -220,7 +237,7 @@
           <plugin> <!-- Create a super-JAR out of the JARs for every dependency in target/libext -->
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-assembly-plugin</artifactId>
-            <version>2.5.4</version>
+            <version>3.6.0</version>
             <executions>
               <execution>
                 <id>libext_assembly</id>
@@ -257,7 +274,8 @@
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-shade-plugin</artifactId>
-            <version>2.4.1</version>
+            <!-- <version>2.4.1</version> -->
+            <version>3.5.1</version>
             <executions>
               <execution>
                 <id>alldeps</id>
@@ -301,11 +319,21 @@
                       <exclude>com.sun.jersey:jersey-json</exclude>
                       <exclude>com.sun.jersey:jersey-core</exclude>
                       <exclude>org.codehaus.jackson:jackson*</exclude>
+                      <exclude>log4j:log4j:jar</exclude>
                     </excludes>
                   </artifactSet>
                   <filters>
+                    
                     <filter>
+                      <artifact>log4j:log4j</artifact>
+                      <excludes>
+                        <exclude>log4j-1.2.17.jar</exclude>
+                        <exclude>META-INF/maven/log4j/*</exclude>
+                      </excludes>
+                    </filter>
+                   
 
+                    <filter>
                       <artifact>javax.servlet:servlet-api</artifact>
                       <excludes>
                         <exclude>javax/servlet/**</exclude>
@@ -351,9 +379,12 @@
                       <includes>
                         <include>**</include>
                       </includes>
-                      <!--<excludes>-->
-                      <!--<exclude>org/junit/experimental/**</exclude>-->
-                      <!--</excludes>-->
+                    </filter>
+                    <filter>
+                      <artifact>org.apache.logging.log4j:*</artifact>
+                      <includes>
+                        <include>**</include>
+                      </includes>
                     </filter>
                   </filters>
                 </configuration>
@@ -479,7 +510,7 @@
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-shade-plugin</artifactId>
-            <version>2.4.1</version>
+            <version>3.5.1</version>
             <executions>
               <execution>
                 <id>all</id>
@@ -524,10 +555,35 @@
   </profiles>
 
   <dependencies>
+    <!--
+    <dependency>
+      <groupId>log4j</groupId>
+      <artifactId>log4j</artifactId>
+      <version>1.2.17</version>
+      <optional>true</optional>
+    </dependency>
+    -->
+
     <dependency>
       <groupId>org.apache.accumulo</groupId>
       <artifactId>accumulo-core</artifactId>
       <version>${accumulo.version}</version>
+      <exclusions>
+        <exclusion>
+          <groupId>log4j</groupId>
+          <artifactId>log4j</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>com.google.guava</groupId>
+          <artifactId>guava</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+
+    <dependency>
+      <groupId>com.google.guava</groupId>
+      <artifactId>guava</artifactId>
+      <version>31.1-jre</version>
     </dependency>
 
     <dependency>
@@ -535,6 +591,12 @@
       <artifactId>hadoop-common</artifactId>
       <version>${hadoop.version}</version>
       <scope>compile</scope>
+      <exclusions>
+        <exclusion>
+          <groupId>log4j</groupId>
+          <artifactId>log4j</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
 
     <dependency>
@@ -549,6 +611,12 @@
       <artifactId>accumulo-minicluster</artifactId>
       <version>${accumulo.version}</version>
       <scope>test</scope>
+      <exclusions>
+        <exclusion>
+          <groupId>log4j</groupId>
+          <artifactId>log4j</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
 
     <!-- Replaces Accumulo dependency on Apache Commons 3.2, which does not use Java Generics. -->
@@ -574,18 +642,36 @@
       <version>${htrace.version}</version>
       <scope>runtime</scope>
       <optional>true</optional>
+      <exclusions>
+        <exclusion>
+          <groupId>log4j</groupId>
+          <artifactId>log4j</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
 
     <dependency>
       <groupId>com.googlecode.matrix-toolkits-java</groupId>
       <artifactId>mtj</artifactId>
       <version>1.0.4</version>
+      <exclusions>
+        <exclusion>
+          <groupId>log4j</groupId>
+          <artifactId>log4j</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
     <!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
     <dependency>
        <groupId>org.postgresql</groupId>
        <artifactId>postgresql</artifactId>
        <version>42.2.10</version>
+      <exclusions>
+        <exclusion>
+          <groupId>log4j</groupId>
+          <artifactId>log4j</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
     <!-- MySQL connector jar -->
     <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
@@ -593,6 +679,42 @@
        <groupId>mysql</groupId>
        <artifactId>mysql-connector-java</artifactId>
        <version>5.1.48</version>
+      <exclusions>
+        <exclusion>
+          <groupId>log4j</groupId>
+          <artifactId>log4j</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-1.2-api -->
+    
+    <dependency>
+       <groupId>org.apache.logging.log4j</groupId>
+       <artifactId>log4j-1.2-api</artifactId>
+       <version>2.20.0</version>
+    </dependency>
+    
+
+    <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-api -->
+    <dependency>
+       <groupId>org.apache.logging.log4j</groupId>
+       <artifactId>log4j-api</artifactId>
+       <version>2.22.1</version>
+    </dependency>
+    <dependency>
+       <groupId>org.apache.logging.log4j</groupId>
+       <artifactId>log4j-core</artifactId>
+       <version>2.22.1</version>
+    </dependency>
+    <dependency>
+       <groupId>org.apache.logging.log4j</groupId>
+       <artifactId>log4j-slf4j2-impl</artifactId>
+       <version>2.22.1</version>
+    </dependency>
+    <dependency>
+       <groupId>org.slf4j</groupId>
+       <artifactId>slf4j-api</artifactId>
+       <version>2.0.10</version>
     </dependency>
 
   </dependencies>

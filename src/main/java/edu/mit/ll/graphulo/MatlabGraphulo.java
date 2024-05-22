@@ -18,10 +18,11 @@ import org.apache.accumulo.core.iterators.IteratorUtil;
 import org.apache.accumulo.core.security.Authorizations;
 import org.apache.accumulo.core.security.ColumnVisibility;
 import org.apache.commons.lang.mutable.MutableLong;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
-import org.apache.log4j.xml.DOMConfigurator;
-
+//import org.apache.log4j.LogManager;
+//import org.apache.log4j.Logger;
+//import org.apache.log4j.xml.DOMConfigurator;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import java.util.Collections;
 import java.util.EnumSet;
 import java.util.List;
@@ -33,12 +34,12 @@ import java.util.Map;
  */
 @SuppressWarnings("unused") // Used in Matlab
 public class MatlabGraphulo extends Graphulo {
-  private static final Logger log = LogManager.getLogger(MatlabGraphulo.class);
+  private static final Logger log = LoggerFactory.getLogger(MatlabGraphulo.class);
 
-  static {
+  //static {
     // load log4j once, when this class is loaded
-    DOMConfigurator.configure(MatlabGraphulo.class.getClassLoader().getResource("log4j.xml"));
-  }
+  //  DOMConfigurator.configure(MatlabGraphulo.class.getClassLoader().getResource("log4j.xml"));
+  //}
 
   public MatlabGraphulo(String instanceName, String zookeepers, String username, String password)
       throws AccumuloSecurityException, AccumuloException {

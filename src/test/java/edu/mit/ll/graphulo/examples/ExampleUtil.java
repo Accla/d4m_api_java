@@ -2,8 +2,10 @@ package edu.mit.ll.graphulo.examples;
 
 import edu.mit.ll.graphulo.util.TripleFileWriter;
 import org.apache.accumulo.core.client.Connector;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
+//import org.apache.log4j.LogManager;
+//import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.junit.Assert;
 
 import java.io.File;
@@ -14,7 +16,7 @@ import java.net.URL;
  * Utility functions used by examples.
  */
 public class ExampleUtil {
-  private static final Logger log = LogManager.getLogger(ExampleUtil.class);
+  private static final Logger log = LoggerFactory.getLogger(ExampleUtil.class);
 
   private ExampleUtil() {
   }

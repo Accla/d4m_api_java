@@ -16,10 +16,12 @@ import org.apache.accumulo.core.data.Range;
 import org.apache.accumulo.core.data.Value;
 import org.apache.accumulo.core.security.Authorizations;
 import org.apache.hadoop.io.Text;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
+//import org.apache.log4j.LogManager;
+//import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -34,7 +36,7 @@ import java.util.TreeSet;
  * Created by dhutchis on 6/22/15.
  */
 public class RowMultiplyTest extends AccumuloTestBase {
-  private static final Logger log = LogManager.getLogger(RowMultiplyTest.class);
+  private static final Logger log = LoggerFactory.getLogger(RowMultiplyTest.class);
 
   /**
    *    ->vBig<-

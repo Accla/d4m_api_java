@@ -8,9 +8,10 @@ import org.apache.commons.math3.linear.LUDecomposition;
 import org.apache.commons.math3.linear.MatrixUtils;
 import org.apache.commons.math3.linear.RealMatrix;
 import org.apache.hadoop.io.Text;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
-
+//import org.apache.log4j.LogManager;
+//import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -25,7 +26,7 @@ import static edu.mit.ll.graphulo.util.GraphuloUtil.EMPTY_TEXT;
  * Invert a matrix.
  */
 public class MemMatrixUtil {
-  private static final Logger log = LogManager.getLogger(MemMatrixUtil.class);
+  private static final Logger log = LoggerFactory.getLogger(MemMatrixUtil.class);
 
   private MemMatrixUtil() {
   }

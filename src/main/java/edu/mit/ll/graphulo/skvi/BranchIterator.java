@@ -8,9 +8,10 @@ import org.apache.accumulo.core.iterators.IteratorEnvironment;
 import org.apache.accumulo.core.iterators.IteratorUtil;
 import org.apache.accumulo.core.iterators.SortedKeyValueIterator;
 import org.apache.accumulo.core.iterators.system.MultiIterator;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
-
+//import org.apache.log4j.LogManager;
+//import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import java.io.IOException;
 import java.util.*;
 
@@ -19,7 +20,7 @@ import java.util.*;
  * Handles turning performance timing on and off.
  */
 public abstract class BranchIterator implements SortedKeyValueIterator<Key, Value> {
-  private static final Logger log = LogManager.getLogger(BranchIterator.class);
+  private static final Logger log = LoggerFactory.getLogger(BranchIterator.class);
 
   /**
    * Return the *bottom-most* iterator of the custom computation stack.

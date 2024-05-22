@@ -13,8 +13,10 @@ import org.apache.accumulo.core.client.TableNotFoundException;
 import org.apache.accumulo.core.data.Key;
 import org.apache.accumulo.core.data.Value;
 import org.apache.accumulo.core.security.Authorizations;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
+//import org.apache.log4j.LogManager;
+//import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -29,7 +31,7 @@ import java.util.TreeMap;
  *
  */
 public class EWiseTest extends AccumuloTestBase {
-  private static final Logger log = LogManager.getLogger(EWiseTest.class);
+  private static final Logger log = LoggerFactory.getLogger(EWiseTest.class);
 
   /**
    * <pre>

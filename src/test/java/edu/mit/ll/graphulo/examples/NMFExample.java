@@ -14,8 +14,10 @@ import org.apache.accumulo.core.data.Range;
 import org.apache.accumulo.core.data.Value;
 import org.apache.accumulo.core.security.Authorizations;
 import org.apache.accumulo.core.trace.DistributedTrace;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
+//import org.apache.log4j.LogManager;
+//import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.junit.Test;
 
 import java.io.FileNotFoundException;
@@ -31,7 +33,7 @@ import java.util.Map;
  * In-memory NMF runs fast.  Fully distributed NMF runs slow but does not require holding the input table in memory.
  */
 public class NMFExample extends AccumuloTestBase {
-  private static final Logger log = LogManager.getLogger(NMFExample.class);
+  private static final Logger log = LoggerFactory.getLogger(NMFExample.class);
 
   /** Corresponds to saved files in the test/java/resources/data folder. */
   public static final int SCALE = 10;

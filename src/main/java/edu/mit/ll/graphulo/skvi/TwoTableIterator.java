@@ -16,9 +16,10 @@ import org.apache.accumulo.core.iterators.IteratorEnvironment;
 import org.apache.accumulo.core.iterators.SortedKeyValueIterator;
 import org.apache.accumulo.core.iterators.user.WholeRowIterator;
 import org.apache.accumulo.core.security.Authorizations;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
-
+//import org.apache.log4j.LogManager;
+//import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import java.io.IOException;
 import java.util.Collection;
 import java.util.Collections;
@@ -54,7 +55,7 @@ import java.util.Map;
  *
  */
 public class TwoTableIterator implements SaveStateIterator {
-  private static final Logger log = LogManager.getLogger(TwoTableIterator.class);
+  private static final Logger log = LoggerFactory.getLogger(TwoTableIterator.class);
 
   private RowMultiplyOp rowMultiplyOp = null;
   private final Map<String, String> rowMultiplyOpOptions = new HashMap<>();

@@ -13,9 +13,10 @@ import org.apache.accumulo.core.data.Value;
 import org.apache.accumulo.core.iterators.Combiner;
 import org.apache.accumulo.core.iterators.IteratorEnvironment;
 import org.apache.accumulo.core.iterators.SortedKeyValueIterator;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
-
+//import org.apache.log4j.LogManager;
+//import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.AbstractMap;
@@ -41,7 +42,7 @@ import java.util.Map;
  *   Defaults to the left side of the multiplication; pass {@value #REVERSE} if the right is desired.
  */
 public abstract class KeyTwoScalar extends Combiner implements ApplyOp {
-  private static final Logger log = LogManager.getLogger(KeyTwoScalar.class);
+  private static final Logger log = LoggerFactory.getLogger(KeyTwoScalar.class);
 
   //////////////////////////////////////////////////////////////////////////////////
   /** Implements simple multiply logic with Key. Returning null means no entry is emitted. */

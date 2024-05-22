@@ -17,8 +17,10 @@ import org.apache.accumulo.core.iterators.Combiner;
 import org.apache.accumulo.core.iterators.user.BigDecimalCombiner;
 import org.apache.accumulo.core.security.Authorizations;
 import org.apache.hadoop.io.Text;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
+//import org.apache.log4j.LogManager;
+//import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -36,7 +38,7 @@ import java.util.TreeSet;
  * Testing {@link Graphulo} line graph operations.
  */
 public class LineTest extends AccumuloTestBase {
-  private static final Logger log = LogManager.getLogger(BFSTest.class);
+  private static final Logger log = LoggerFactory.getLogger(BFSTest.class);
 
   /**
    *

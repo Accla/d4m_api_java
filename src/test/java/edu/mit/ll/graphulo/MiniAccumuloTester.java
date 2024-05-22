@@ -5,8 +5,10 @@ import org.apache.accumulo.core.client.security.tokens.PasswordToken;
 import org.apache.accumulo.minicluster.MiniAccumuloCluster;
 import org.apache.accumulo.minicluster.MiniAccumuloConfig;
 import org.apache.commons.lang.time.StopWatch;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
+//import org.apache.log4j.LogManager;
+//import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.junit.rules.ExternalResource;
 
 import java.io.File;
@@ -18,7 +20,7 @@ import java.nio.file.attribute.FileAttribute;
  * Provides a MiniAccumuloCluster for use in testing.
  */
 public class MiniAccumuloTester extends ExternalResource implements IAccumuloTester {
-  private static final Logger log = LogManager.getLogger(MiniAccumuloTester.class);
+  private static final Logger log = LoggerFactory.getLogger(MiniAccumuloTester.class);
   private final boolean doDebug;
   /* Fixture State */
   private File tempDir;

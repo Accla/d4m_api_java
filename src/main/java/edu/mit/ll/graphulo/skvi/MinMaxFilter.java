@@ -8,9 +8,10 @@ import org.apache.accumulo.core.data.Value;
 import org.apache.accumulo.core.iterators.Filter;
 import org.apache.accumulo.core.iterators.IteratorEnvironment;
 import org.apache.accumulo.core.iterators.SortedKeyValueIterator;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
-
+//import org.apache.log4j.LogManager;
+//import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.nio.charset.StandardCharsets;
@@ -23,7 +24,7 @@ import java.util.Map;
  * encoded as a String.
  */
 public class MinMaxFilter extends Filter {
-  private static final Logger log = LogManager.getLogger(MinMaxFilter.class);
+  private static final Logger log = LoggerFactory.getLogger(MinMaxFilter.class);
 
   public static final String MINVALUE = "minValue", MAXVALUE = "maxValue",
       USECOLQ = "useColQ", PREFIXCOLQ = "prefixColQ";

@@ -9,9 +9,10 @@ import org.apache.accumulo.core.data.Key;
 import org.apache.accumulo.core.data.Range;
 import org.apache.accumulo.core.data.Value;
 import org.apache.accumulo.core.iterators.IteratorEnvironment;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
-
+//import org.apache.log4j.LogManager;
+//import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import java.io.IOException;
 import java.util.AbstractMap;
 import java.util.Collection;
@@ -24,7 +25,7 @@ import static java.nio.charset.StandardCharsets.UTF_8;
  * Put the Value in the Column Qualifier.
  */
 public class ValToColApply implements ApplyOp {
-  private static final Logger log = LogManager.getLogger(ValToColApply.class);
+  private static final Logger log = LoggerFactory.getLogger(ValToColApply.class);
 
   public static IteratorSetting iteratorSetting(int priority) {
     IteratorSetting itset = new IteratorSetting(priority, ApplyIterator.class);

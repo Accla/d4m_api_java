@@ -2,10 +2,18 @@
  * 
  */
 package edu.mit.ll.d4m.db.cloud;
-import org.apache.log4j.ConsoleAppender;
-import org.apache.log4j.Level;
-import org.apache.log4j.Logger;
-import org.apache.log4j.PropertyConfigurator;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+//import org.apache.log4j.ConsoleAppender;
+//import org.apache.log4j.Level;
+//import org.apache.log4j.Logger;
+//import org.apache.log4j.PropertyConfigurator;
+
+//import org.apache.logging.log4j.core.appender.ConsoleAppender;
+//import org.apache.logging.log4j.Level;
+//import org.apache.logging.log4j.Logger;
+//import org.apache.logging.log4j.PropertyConfigurator;
 
 import java.net.URL;
 /**
@@ -14,13 +22,13 @@ import java.net.URL;
  *
  */
 public class D4mConfig {
-	private static final Logger log = Logger.getLogger(D4mConfig.class);
+	private static final Logger log = LoggerFactory.getLogger(D4mConfig.class);
 
 	public static final String ACCUMULO="Accumulo";
 	public static boolean DEBUG;
 
   // DH2015: This is redundant with D4mParent
-
+/** 
 	static {
 		ClassLoader clsloader = D4mConfig.class.getClassLoader();
 		URL urlLog4j = clsloader.getResource("log4j.xml");
@@ -39,4 +47,5 @@ public class D4mConfig {
 		String tmpDebug = System.getProperty("d4m.debug", "false");
 		DEBUG = Boolean.parseBoolean(tmpDebug);
 	}
+	*/
 }

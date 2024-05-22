@@ -9,9 +9,10 @@ import org.apache.accumulo.core.data.Range;
 import org.apache.accumulo.core.data.Value;
 import org.apache.accumulo.core.iterators.IteratorEnvironment;
 import org.apache.accumulo.core.iterators.SortedKeyValueIterator;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
-
+//import org.apache.log4j.LogManager;
+//import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import java.io.IOException;
 import java.util.Collection;
 import java.util.HashMap;
@@ -24,7 +25,7 @@ import java.util.TreeMap;
  * Emit only the top KMER Values per row, each decoded as a Double.
  */
 public class TopColPerRowIterator implements SortedKeyValueIterator<Key,Value> {
-  private static final Logger log = LogManager.getLogger(TopColPerRowIterator.class);
+  private static final Logger log = LoggerFactory.getLogger(TopColPerRowIterator.class);
 
   public static final String K = "k";//, //SCALAR_TYPE = MathTwoScalar.SCALAR_TYPE; //"encoderType";
 

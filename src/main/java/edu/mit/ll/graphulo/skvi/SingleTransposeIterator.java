@@ -8,9 +8,10 @@ import org.apache.accumulo.core.data.Value;
 import org.apache.accumulo.core.iterators.IteratorEnvironment;
 import org.apache.accumulo.core.iterators.SortedKeyValueIterator;
 import org.apache.hadoop.io.Text;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
-
+//import org.apache.log4j.LogManager;
+//import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.Collection;
@@ -25,7 +26,7 @@ import java.util.TreeSet;
  * Otherwise emit the original entry except, if it contains the edgeSep, we change its timestamp to even.
  */
 public class SingleTransposeIterator implements SortedKeyValueIterator<Key,Value> {
-  private static final Logger log = LogManager.getLogger(SingleTransposeIterator.class);
+  private static final Logger log = LoggerFactory.getLogger(SingleTransposeIterator.class);
 
   public static final String EDGESEP = "edgeSep", STARTNODES = "startNodes",
       NEG_ONE_IN_DEG = "negOneInDeg",

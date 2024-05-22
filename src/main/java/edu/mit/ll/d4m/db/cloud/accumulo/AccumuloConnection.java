@@ -36,8 +36,10 @@ import org.apache.accumulo.core.security.Authorizations;
 import org.apache.accumulo.core.security.thrift.TCredentials;
 import org.apache.accumulo.core.tabletserver.thrift.TabletClientService;
 import org.apache.accumulo.core.util.AddressUtil;
+import org.apache.accumulo.core.util.HostAndPort;
 import org.apache.hadoop.io.Text;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.apache.thrift.transport.TTransportException;
 
 import java.lang.reflect.InvocationTargetException;
@@ -59,7 +61,7 @@ import java.util.concurrent.TimeUnit;
  *
  */
 public class AccumuloConnection {
-	private static final Logger log = Logger.getLogger(AccumuloConnection.class);
+	private static final Logger log = LoggerFactory.getLogger(AccumuloConnection.class);
 
 	private ConnectionProperties conn=null;
 	private ZooKeeperInstance instance=null;
@@ -101,9 +103,9 @@ public class AccumuloConnection {
 		try {
 			connector.tableOperations().create(tableName);
 		} catch (AccumuloException | AccumuloSecurityException e) {		
-			log.warn("",e);
+			log.warn("",e.getMessage());
 		} catch (TableExistsException e) {
-			log.warn("Table "+ tableName+"  exist.",e);
+			log.warn("Table "+ tableName+"  exist.",e.getMessage());
 		}
 	}
 
@@ -158,7 +160,7 @@ public class AccumuloConnection {
 	}
 
 	public TabletClientService.Iface getTabletClient (String tserverAddress) throws TTransportException {
-		com.google.common.net.HostAndPort address = AddressUtil.parseAddress(tserverAddress,false);
+		HostAndPort address = AddressUtil.parseAddress(tserverAddress,false);
     //${accumulo.VERSION.1.6}return ThriftUtil.getTServerClient( tserverAddress, instance.getConfiguration()); // 1.6
     return ThriftUtil.getTServerClient( address, new ClientContext(instance, new Credentials(principal, token), instance.getConfiguration())); // 1.7
 	}

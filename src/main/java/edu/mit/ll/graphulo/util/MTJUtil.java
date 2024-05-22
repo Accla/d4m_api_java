@@ -8,9 +8,10 @@ import no.uib.cipr.matrix.sparse.LinkedSparseMatrix;
 import org.apache.accumulo.core.data.Key;
 import org.apache.accumulo.core.data.Value;
 import org.apache.hadoop.io.Text;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
-
+//import org.apache.log4j.LogManager;
+//import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -27,7 +28,7 @@ import static edu.mit.ll.graphulo.util.GraphuloUtil.EMPTY_TEXT;
  * Used in client-side version of kTrussAdj.
  */
 public class MTJUtil {
-  private static final Logger log = LogManager.getLogger(MTJUtil.class);
+  private static final Logger log = LoggerFactory.getLogger(MTJUtil.class);
 
   private MTJUtil() {
   }

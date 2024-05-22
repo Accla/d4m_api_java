@@ -10,8 +10,10 @@ import org.apache.accumulo.core.iterators.Combiner;
 import org.apache.accumulo.core.iterators.IteratorEnvironment;
 import org.apache.accumulo.core.iterators.TypedValueCombiner.Encoder;
 import org.apache.accumulo.core.iterators.ValueFormatException;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
+//import org.apache.log4j.LogManager;
+//import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.math.BigDecimal;
@@ -29,7 +31,7 @@ import static java.nio.charset.StandardCharsets.UTF_8;
  * Will not emit zero entries unless keepZero is set to true.
  */
 public class MathTwoScalar extends SimpleTwoScalar {
-  private static final Logger log = LogManager.getLogger(MathTwoScalar.class);
+  private static final Logger log = LoggerFactory.getLogger(MathTwoScalar.class);
 
   public enum ScalarOp {
     PLUS, TIMES, SET_LEFT, MINUS,

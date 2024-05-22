@@ -9,9 +9,10 @@ import org.apache.accumulo.core.iterators.IteratorUtil;
 import org.apache.accumulo.core.iterators.LongCombiner;
 import org.apache.accumulo.core.iterators.user.SummingCombiner;
 import org.apache.hadoop.io.Text;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
-
+//import org.apache.log4j.LogManager;
+//import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import java.nio.charset.StandardCharsets;
 
 /**
@@ -23,7 +24,7 @@ import java.nio.charset.StandardCharsets;
  * Can set the column family if you want to use a non-empty one.
  */
 public class D4MTableWriter implements AutoCloseable {
-  private static final Logger log = LogManager.getLogger(D4MTableWriter.class);
+  private static final Logger log = LoggerFactory.getLogger(D4MTableWriter.class);
 
   @Override
   public void close() {

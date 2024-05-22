@@ -2,11 +2,13 @@ package edu.mit.ll.d4m.db.cloud;
 
 import java.util.ArrayList;
 
-import org.apache.log4j.Logger;
+//import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import edu.mit.ll.d4m.db.cloud.accumulo.D4mDbQueryAccumulo;
 
 public class TestD4mDbQuery {
-	private static final Logger log = Logger.getLogger(TestD4mDbQuery.class);
+	private static final Logger log = LoggerFactory.getLogger(TestD4mDbQuery.class);
 	private static int count=0;
 	
 	// public void testQueryForAll() {

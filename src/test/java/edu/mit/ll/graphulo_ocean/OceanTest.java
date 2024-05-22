@@ -11,8 +11,10 @@ import org.apache.accumulo.core.client.Connector;
 import org.apache.accumulo.core.data.Key;
 import org.apache.accumulo.core.data.PartialKey;
 import org.apache.accumulo.core.data.Value;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
+//import org.apache.log4j.LogManager;
+//import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -24,7 +26,7 @@ import java.util.SortedMap;
  * Test the ocean genomics pipeline on a small file.
  */
 public class OceanTest extends AccumuloTestBase {
-  private static final Logger log = LogManager.getLogger(OceanTest.class);
+  private static final Logger log = LoggerFactory.getLogger(OceanTest.class);
 
   public static final int kmer = 11;
 

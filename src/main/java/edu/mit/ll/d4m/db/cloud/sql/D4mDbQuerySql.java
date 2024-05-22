@@ -9,7 +9,8 @@ import java.sql.Statement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import edu.mit.ll.d4m.db.cloud.D4mParent;
 
@@ -25,7 +26,7 @@ import edu.mit.ll.d4m.db.cloud.D4mParent;
  *
  */
 public class D4mDbQuerySql extends D4mParent {
-    private static final Logger log = Logger.getLogger(D4mDbQuerySql.class);
+    private static final Logger log = LoggerFactory.getLogger(D4mDbQuerySql.class);
     private String rows = new String("");
     private String cols = new String("");
     private String vals = new String("");

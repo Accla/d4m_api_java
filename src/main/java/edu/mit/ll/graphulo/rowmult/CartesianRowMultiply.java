@@ -11,9 +11,10 @@ import org.apache.accumulo.core.data.Value;
 import org.apache.accumulo.core.iterators.IteratorEnvironment;
 import org.apache.accumulo.core.iterators.SortedKeyValueIterator;
 import org.apache.hadoop.io.Text;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
-
+//import org.apache.log4j.LogManager;
+//import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -29,7 +30,7 @@ import java.util.TreeSet;
 
 
 public class CartesianRowMultiply implements RowMultiplyOp {
-  private static final Logger log = LogManager.getLogger(CartesianRowMultiply.class);
+  private static final Logger log = LoggerFactory.getLogger(CartesianRowMultiply.class);
 
   /**
    * Fill a SortedMap with all the entries in the same row as skvi.getTopKey().getRow()

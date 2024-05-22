@@ -1,7 +1,8 @@
 package edu.mit.ll.graphulo.util;
 
-import org.apache.log4j.Logger;
-
+//import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 /**
  * Print out a status line every so often.
  */

@@ -13,8 +13,10 @@ import org.apache.accumulo.core.data.Key;
 import org.apache.accumulo.core.data.Range;
 import org.apache.accumulo.core.data.Value;
 import org.apache.accumulo.core.security.Authorizations;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
+//import org.apache.log4j.LogManager;
+//import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.junit.Test;
 
 import java.io.File;
@@ -27,7 +29,7 @@ import java.util.TreeMap;
  * Test NDSI Query
  */
 public class NDSITest extends AccumuloTestBase {
-  private static final Logger log = LogManager.getLogger(NDSITest.class);
+  private static final Logger log = LoggerFactory.getLogger(NDSITest.class);
 
   /**
    *

@@ -4,10 +4,13 @@ import com.beust.jcommander.Parameter;
 import edu.mit.ll.graphulo.util.StatusLogger;
 import org.apache.hadoop.io.WritableComparator;
 import org.apache.log4j.ConsoleAppender;
-import org.apache.log4j.Level;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
-import org.apache.log4j.SimpleLayout;
+
+//import org.apache.log4j.Level;
+//import org.apache.log4j.LogManager;
+//import org.apache.log4j.Logger;
+//import org.apache.log4j.SimpleLayout;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
@@ -21,14 +24,14 @@ import java.io.PrintStream;
  * Ex: java -cp "/home/gridsan/dhutchison/gits/graphulo/target/graphulo-1.0.0-SNAPSHOT-all.jar" edu.mit.ll.graphulo_ocean.OceanIngestKMers_csvtoMyria -myriaHost node-109 -inputDir "/home/gridsan/groups/istcdata/datasets/ocean_metagenome/csv_data/parsed_non_overlapped_11_cnt" -K 11 -numthreads 1 -lockDir "/home/gridsan/groups/istcdata/datasets/ocean_metagenome/csv_data/parsed_non_overlapped_11_cnt_upload_claim" -outputDir "/home/gridsan/groups/istcdata/datasets/ocean_metagenome/csv_data/parsed_non_overlapped_11_cnt_upload"
  */
 public class OceanPipeKmers {
-  private static final Logger log = LogManager.getLogger(OceanPipeKmers.class);
+  private static final Logger log = LoggerFactory.getLogger(OceanPipeKmers.class);
   private final StatusLogger slog = new StatusLogger();
 
   public static void main(String[] args) {
-    LogManager.resetConfiguration();
-    log.removeAllAppenders();
-    log.addAppender(new ConsoleAppender(new SimpleLayout(), ConsoleAppender.SYSTEM_ERR));
-    log.setLevel(Level.INFO);
+    //LogManager.resetConfiguration();
+    //log.removeAllAppenders();
+    //log.addAppender(new ConsoleAppender(new SimpleLayout(), ConsoleAppender.SYSTEM_ERR));
+    //log.setLevel(Level.INFO);
     executeNew(args);
   }
 

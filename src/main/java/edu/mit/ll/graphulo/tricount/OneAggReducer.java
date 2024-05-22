@@ -5,8 +5,6 @@ import edu.mit.ll.graphulo.util.GraphuloUtil;
 import org.apache.accumulo.core.data.Key;
 import org.apache.accumulo.core.data.Value;
 import org.apache.accumulo.core.iterators.IteratorEnvironment;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
 
 import java.io.IOException;
 import java.util.Map;
@@ -15,7 +13,7 @@ import java.util.Map;
  *
  */
 public final class OneAggReducer extends ReducerSerializable<Long> {
-//  private static final Logger log = LogManager.getLogger(OneAggReducer.class);
+
 
   private long triangles = 0L;
 

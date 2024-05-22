@@ -4,14 +4,15 @@
 package edu.mit.ll.d4m.db.cloud;
 
 import edu.mit.ll.cloud.connection.ConnectionProperties;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * @author CHV8091
  *
  */
 public abstract class D4mInsertBase {
-	private static final Logger log = Logger.getLogger(D4mInsertBase.class);
+	private static final Logger log = LoggerFactory.getLogger(D4mInsertBase.class);
 
 	protected String tableName = "";
 	protected String rows = "";

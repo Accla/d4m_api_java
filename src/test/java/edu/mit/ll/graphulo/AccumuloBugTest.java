@@ -19,8 +19,10 @@ import org.apache.accumulo.core.data.Range;
 import org.apache.accumulo.core.data.Value;
 import org.apache.accumulo.core.security.Authorizations;
 import org.apache.hadoop.io.Text;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
+//import org.apache.log4j.LogManager;
+//import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -45,7 +47,7 @@ public class AccumuloBugTest extends AccumuloTestBase {
   static {
     Arrays.fill(AccumuloBugTest.BIG_CHUNK, (byte)42);
   }
-  private static final Logger log = LogManager.getLogger(AccumuloBugTest.class);
+  private static final Logger log = LoggerFactory.getLogger(AccumuloBugTest.class);
 
   @BeforeClass
   public static void printWarning() {

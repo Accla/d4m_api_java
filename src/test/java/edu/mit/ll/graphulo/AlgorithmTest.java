@@ -18,8 +18,10 @@ import org.apache.accumulo.core.data.Value;
 import org.apache.accumulo.core.security.Authorizations;
 import org.apache.accumulo.core.trace.DistributedTrace;
 import org.apache.hadoop.io.Text;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
+//import org.apache.log4j.LogManager;
+//import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -38,7 +40,7 @@ import static edu.mit.ll.graphulo.util.GraphuloUtil.EMPTY_BYTES;
  * Test kTruss, Jaccard and other algorithms.
  */
 public class AlgorithmTest extends AccumuloTestBase {
-  private static final Logger log = LogManager.getLogger(AlgorithmTest.class);
+  private static final Logger log = LoggerFactory.getLogger(AlgorithmTest.class);
 
   private enum KTrussAdjAlg { Normal, Fused, Client_Sparse, Client_Dense, Smart }
 

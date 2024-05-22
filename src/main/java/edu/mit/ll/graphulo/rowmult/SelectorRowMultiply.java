@@ -6,9 +6,10 @@ import org.apache.accumulo.core.data.PartialKey;
 import org.apache.accumulo.core.data.Value;
 import org.apache.accumulo.core.iterators.IteratorEnvironment;
 import org.apache.accumulo.core.iterators.SortedKeyValueIterator;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
-
+//import org.apache.log4j.LogManager;
+//import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import java.io.IOException;
 import java.util.Iterator;
 import java.util.Map;
@@ -17,7 +18,7 @@ import java.util.Map;
  * A kind of intersection row multiply. Emits rows of B.
  */
 public class SelectorRowMultiply implements RowMultiplyOp {
-  private static final Logger log = LogManager.getLogger(SelectorRowMultiply.class);
+  private static final Logger log = LoggerFactory.getLogger(SelectorRowMultiply.class);
 
   public static final String ASELECTSBROW="ASelectsBRow";
 

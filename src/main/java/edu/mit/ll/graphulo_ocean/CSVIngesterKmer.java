@@ -22,9 +22,10 @@ import org.apache.accumulo.core.iterators.user.SummingCombiner;
 import org.apache.commons.math3.util.Pair;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.io.WritableComparator;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
-
+//import org.apache.log4j.LogManager;
+//import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -47,7 +48,7 @@ import static java.nio.charset.StandardCharsets.UTF_8;
  * Prefer the IntegerMap for performance unless K is too large.
  */
 public abstract class CSVIngesterKmer<T> {
-  private static final Logger log = LogManager.getLogger(CSVIngesterKmer.class);
+  private static final Logger log = LoggerFactory.getLogger(CSVIngesterKmer.class);
 
 
   /** An action to take on all the kmers collected from a sample file. */

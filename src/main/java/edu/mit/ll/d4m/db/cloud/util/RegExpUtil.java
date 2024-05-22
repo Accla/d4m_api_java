@@ -3,7 +3,9 @@
  */
 package edu.mit.ll.d4m.db.cloud.util;
 
-import org.apache.log4j.Logger;
+//import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * RegExpUtil :  Regular expression utility class
@@ -12,7 +14,7 @@ import org.apache.log4j.Logger;
  *
  */
 public class RegExpUtil {
-	private static final Logger log = Logger.getLogger(RegExpUtil.class);
+	private static final Logger log = LoggerFactory.getLogger(RegExpUtil.class);
 	static int i127=127;
 	static String ASCII_127 = Character.toString((char)127);
 

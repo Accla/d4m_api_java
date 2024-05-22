@@ -4,7 +4,9 @@
 package edu.mit.ll.d4m.db.cloud.util;
 
 import edu.mit.ll.d4m.db.cloud.QueryMethod;
-import org.apache.log4j.Logger;
+//import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  *  Static methods
@@ -13,7 +15,7 @@ import org.apache.log4j.Logger;
  */
 public class D4mQueryUtil {
 
-	private static final Logger log = Logger.getLogger(D4mQueryUtil.class);
+	private static final Logger log = LoggerFactory.getLogger(D4mQueryUtil.class);
 	public static final String KEY_RANGE = "KEY_RANGE";
 	public static final String REGEX_RANGE = "REGEX_RANGE";
 	public static final String POSITIVE_INFINITY_RANGE = "POSITIVE_INFINITY_RANGE";

@@ -5,9 +5,10 @@ import com.beust.jcommander.converters.FileConverter;
 import com.google.common.base.Preconditions;
 import com.google.common.io.PatternFilenameFilter;
 import edu.mit.ll.graphulo_ocean.parfile.ParallelFileMapper;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
-
+//import org.apache.log4j.LogManager;
+//import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -32,7 +33,7 @@ import java.util.SortedMap;
  diff <(ls -1 "parsed${NOL}_${K}_cnt/" | awk -F'_' '{print $1}') <(ls -1 "parsed${NOL}_${K}_cnt_claim/" | awk -F'.csv' '{print $1}') | awk -F' ' '{print $2}' | sed '/^$/d' | while read i; do rm "parsed${NOL}_${K}_cnt_claim/${i}.csv.claim"; done
  */
 public class OceanIngestKMers_partocsv {
-  private static final Logger log = LogManager.getLogger(OceanIngestKMers_partocsv.class);
+  private static final Logger log = LoggerFactory.getLogger(OceanIngestKMers_partocsv.class);
 
   public static void main(String[] args) {
     executeNew(args);
@@ -92,7 +93,7 @@ public class OceanIngestKMers_partocsv {
       try {
         Thread.sleep((long)(Math.random() * 1000));
       } catch (InterruptedException e) {
-        e.printStackTrace();
+        log.warn("",e);
       }
       if (!opts.outputDir.exists())
         //noinspection ResultOfMethodCallIgnored

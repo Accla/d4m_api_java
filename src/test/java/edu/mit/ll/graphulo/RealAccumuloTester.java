@@ -2,12 +2,14 @@ package edu.mit.ll.graphulo;
 
 import org.apache.accumulo.core.client.*;
 import org.apache.accumulo.core.client.security.tokens.PasswordToken;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
+//import org.apache.log4j.LogManager;
+//import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.junit.rules.ExternalResource;
 
 public class RealAccumuloTester extends ExternalResource implements IAccumuloTester {
-    private static final Logger log = LogManager.getLogger(RealAccumuloTester.class);
+    private static final Logger log = LoggerFactory.getLogger(RealAccumuloTester.class);
 
     private ClientConfiguration cc;
     private String username = "root";

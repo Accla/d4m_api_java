@@ -11,9 +11,10 @@ import org.apache.accumulo.core.iterators.IteratorEnvironment;
 import org.apache.accumulo.core.iterators.IteratorUtil;
 import org.apache.accumulo.core.security.Authorizations;
 import org.apache.hadoop.io.Text;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
-
+//import org.apache.log4j.LogManager;
+//import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.AbstractMap;
@@ -38,7 +39,8 @@ import java.util.Map;
  * Preserves keys.
  */
 public class JaccardDegreeApply implements ApplyOp {
-  private static final Logger log = LogManager.getLogger(JaccardDegreeApply.class);
+//  private static final Logger log = LogManager.getLogger(JaccardDegreeApply.class);
+  private static final Logger log = LoggerFactory.getLogger(JaccardDegreeApply.class);
 
   /** Setup with {@link edu.mit.ll.graphulo.Graphulo#basicRemoteOpts(String, String, String, Authorizations)}
    * basicRemoteOpts(ApplyIterator.APPLYOP + GraphuloUtil.OPT_SUFFIX, ADeg, null, Aauthorizations)

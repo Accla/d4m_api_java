@@ -20,8 +20,10 @@ import org.apache.accumulo.core.trace.DistributedTrace;
 import org.apache.htrace.Sampler;
 import org.apache.htrace.Trace;
 import org.apache.htrace.TraceScope;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
+//import org.apache.log4j.LogManager;
+//import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -32,7 +34,7 @@ import java.util.Map;
  * Test distributed tracing
  */
 public class TraceTest extends AccumuloTestBase {
-  private static final Logger log = LogManager.getLogger(TraceTest.class);
+  private static final Logger log = LoggerFactory.getLogger(TraceTest.class);
 
   @Test
   public void printTraceConfig() {

@@ -18,8 +18,10 @@ import org.apache.accumulo.core.data.Key;
 import org.apache.accumulo.core.data.Range;
 import org.apache.accumulo.core.data.Value;
 import org.apache.accumulo.core.security.Authorizations;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
+//import org.apache.log4j.LogManager;
+//import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.junit.Test;
 
 import java.io.FileNotFoundException;
@@ -35,7 +37,7 @@ import java.util.Map;
  * (4) find the minimum, maximum, sum, count and average of the Jaccard coefficients in ex10J.
  */
 public class JaccardExample extends AccumuloTestBase {
-  private static final Logger log = LogManager.getLogger(JaccardExample.class);
+  private static final Logger log = LoggerFactory.getLogger(JaccardExample.class);
 
   /** Corresponds to saved files in the test/java/resources/data folder. */
   public static final int SCALE = 10;

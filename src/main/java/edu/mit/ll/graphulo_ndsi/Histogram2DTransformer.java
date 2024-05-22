@@ -11,9 +11,10 @@ import org.apache.accumulo.core.data.Range;
 import org.apache.accumulo.core.data.Value;
 import org.apache.accumulo.core.iterators.IteratorEnvironment;
 import org.apache.hadoop.io.Text;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
-
+//import org.apache.log4j.LogManager;
+//import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import java.io.IOException;
 import java.util.AbstractMap;
 import java.util.Collection;
@@ -24,7 +25,7 @@ import java.util.Map;
  * Bin the row and column qualifier
  */
 public class Histogram2DTransformer implements ApplyOp {
-  private static final Logger log = LogManager.getLogger(Histogram2DTransformer.class);
+  private static final Logger log = LoggerFactory.getLogger(Histogram2DTransformer.class);
 
   public static final String
       MIN_X = "minX", MIN_Y = "minY", BINSIZE_X = "binsizeX", BINSIZE_Y = "binsizeY";

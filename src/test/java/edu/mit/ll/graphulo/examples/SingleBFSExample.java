@@ -17,8 +17,10 @@ import org.apache.accumulo.core.iterators.LongCombiner;
 import org.apache.accumulo.core.iterators.user.SummingCombiner;
 import org.apache.accumulo.core.security.Authorizations;
 import org.apache.commons.lang.mutable.MutableLong;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
+//import org.apache.log4j.LogManager;
+//import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -33,7 +35,7 @@ import java.util.Map;
  * (3) count the number of entries in ex10ASingleStep3.
  */
 public class SingleBFSExample extends AccumuloTestBase {
-  private static final Logger log = LogManager.getLogger(SingleBFSExample.class);
+  private static final Logger log = LoggerFactory.getLogger(SingleBFSExample.class);
 
   /** Corresponds to saved files in the test/java/resources/data folder. */
   public static final int SCALE = 10;

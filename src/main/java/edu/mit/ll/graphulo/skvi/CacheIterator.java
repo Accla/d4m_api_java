@@ -13,9 +13,10 @@ import org.apache.accumulo.core.iterators.Combiner;
 import org.apache.accumulo.core.iterators.IteratorEnvironment;
 import org.apache.accumulo.core.iterators.SortedKeyValueIterator;
 import org.apache.commons.collections4.map.LRUMap;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
-
+//import org.apache.log4j.LogManager;
+//import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import java.io.IOException;
 import java.util.Collection;
 import java.util.HashMap;
@@ -26,7 +27,7 @@ import java.util.Map;
  * Similar to {@link LruCacheIterator}, except that it uses a regular map.
  */
 public class CacheIterator implements SortedKeyValueIterator<Key,Value> {
-  private static final Logger log = LogManager.getLogger(CacheIterator.class);
+  private static final Logger log = LoggerFactory.getLogger(CacheIterator.class);
 
 
   public static final String CAPACITY = "capacity", COMBINER="combiner",

@@ -10,7 +10,10 @@ import java.util.HashMap;
 import java.util.regex.Pattern;
 
 import edu.mit.ll.cloud.connection.ConnectionProperties;
-import org.apache.log4j.Logger;
+
+//import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.junit.AfterClass;
 import org.junit.Assert;
 import org.junit.Before;
@@ -30,7 +33,7 @@ import edu.mit.ll.d4m.db.cloud.util.D4mDataObj;
  *
  */
 public class D4mDbQueryTest7 {
-	private static Logger log = Logger.getLogger(D4mDbQueryTest7.class);
+	private static Logger log = LoggerFactory.getLogger(D4mDbQueryTest7.class);
 
 	static String instanceName = "";
 	static String host = "";

@@ -1,8 +1,9 @@
 package edu.mit.ll.d4m.db.cloud;
 
 import edu.mit.ll.d4m.db.cloud.accumulo.AccumuloInsert;
-import org.apache.log4j.Logger;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import edu.mit.ll.cloud.connection.ConnectionProperties;
 
 
@@ -12,7 +13,7 @@ import edu.mit.ll.cloud.connection.ConnectionProperties;
 
 public class D4mDbInsert extends D4mParent {
 
-	private static final Logger log = Logger.getLogger(D4mDbInsert.class);
+	private static final Logger log = LoggerFactory.getLogger(D4mDbInsert.class);
 
 	// used to control special behavior in AccumuloInsert
 	private static boolean IntEncodeValueAndDropEmpty = false; // set vals to empty; UIntegerLexicode
@@ -158,7 +159,7 @@ public class D4mDbInsert extends D4mParent {
 
 		}
 		catch (Exception ex) {
-			log.warn(ex);
+			log.warn("",ex);
 		}
 		return exist;
 	}

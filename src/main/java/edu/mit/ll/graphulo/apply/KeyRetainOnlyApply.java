@@ -10,9 +10,10 @@ import org.apache.accumulo.core.data.PartialKey;
 import org.apache.accumulo.core.data.Range;
 import org.apache.accumulo.core.data.Value;
 import org.apache.accumulo.core.iterators.IteratorEnvironment;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
-
+//import org.apache.log4j.LogManager;
+//import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import java.io.IOException;
 import java.util.AbstractMap;
 import java.util.Collection;
@@ -26,7 +27,7 @@ import static java.lang.Boolean.TRUE;
  * If null, then reduces the Key to the seek start Key (which is the all empty fields Key if seek range starts at -inf).
  */
 public class KeyRetainOnlyApply implements ApplyOp {
-  private static final Logger log = LogManager.getLogger(KeyRetainOnlyApply.class);
+  private static final Logger log = LoggerFactory.getLogger(KeyRetainOnlyApply.class);
 
   public static final String PARTIAL_KEY = "PartialKey";
 

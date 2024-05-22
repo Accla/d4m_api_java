@@ -8,8 +8,10 @@ import org.apache.accumulo.core.client.AccumuloException;
 import org.apache.accumulo.core.client.AccumuloSecurityException;
 import org.apache.accumulo.core.client.Connector;
 import org.apache.accumulo.core.client.TableNotFoundException;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
+//import org.apache.log4j.LogManager;
+//import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -21,7 +23,7 @@ import java.io.FileNotFoundException;
  * given the incidence matrix and the lower triangle of the adjacency matrix.
  */
 public class TriangleCountExample extends AccumuloTestBase {
-  private static final Logger log = LogManager.getLogger(TriangleCountExample.class);
+  private static final Logger log = LoggerFactory.getLogger(TriangleCountExample.class);
 
   /** Corresponds to saved files in the test/java/resources/data folder. */
   private static final int SCALE = 10;

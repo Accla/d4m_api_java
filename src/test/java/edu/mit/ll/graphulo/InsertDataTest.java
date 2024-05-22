@@ -3,8 +3,11 @@ package edu.mit.ll.graphulo;
 import edu.mit.ll.graphulo.util.TripleFileWriter;
 import edu.mit.ll.graphulo.util.AccumuloTestBase;
 import org.apache.accumulo.core.client.Connector;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
+//import org.apache.log4j.LogManager;
+//import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -17,7 +20,7 @@ import java.net.URL;
  * into Accumulo and test Graphulo functions.
  */
 public class InsertDataTest extends AccumuloTestBase {
-  private static final Logger log = LogManager.getLogger(InsertDataTest.class);
+  private static final Logger log = LoggerFactory.getLogger(InsertDataTest.class);
 
   public static final String PREFIX_TABLE_SCALE = "test_SCALE_";
 

@@ -34,8 +34,10 @@ import org.apache.accumulo.core.iterators.SortedKeyValueIterator;
 import org.apache.accumulo.core.security.Authorizations;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.io.WritableComparator;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
+//import org.apache.log4j.LogManager;
+//import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -46,7 +48,7 @@ import java.util.*;
 import static java.nio.charset.StandardCharsets.UTF_8;
 
 public class UtilTest {
-  private static final Logger log = LogManager.getLogger(UtilTest.class);
+  private static final Logger log = LoggerFactory.getLogger(UtilTest.class);
 
   /**
    * Retained in case it is useful again.
@@ -513,7 +515,7 @@ public class UtilTest {
     log.debug(Key.toPrintableString(b, 0, b.length, b.length));
 
     Collection<Range> set = GraphuloUtil.d4mRowToRanges(s, true);
-    log.debug(set);
+    log.debug(set.toString());
     String s2 = GraphuloUtil.rangesToD4MString(set,',');
 //    byte[] b2 = s.getBytes(StandardCharsets.UTF_8);
     log.debug(Key.toPrintableString(b, 0, b.length, b.length));
@@ -575,7 +577,7 @@ public class UtilTest {
 
     r = new Range("a",true,null,false);
     e = new Range("pre|a",true,"pre}",false);
-    log.info(e);
+    log.info(e.toString());
     a = GraphuloUtil.prependPrefixToRange(pre, r);
     Assert.assertEquals(e, a);
 

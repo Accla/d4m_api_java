@@ -7,11 +7,12 @@ import org.apache.accumulo.core.client.security.tokens.PasswordToken;
 import org.apache.commons.configuration.Configuration;
 import org.apache.commons.configuration.ConfigurationException;
 import org.apache.commons.configuration.PropertiesConfiguration;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
+//import org.apache.log4j.LogManager;
+//import org.apache.log4j.Logger;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -44,7 +45,7 @@ import java.io.IOException;
  * Holds test configurations; default test suite for JUnit testing.
  */
 public class TEST_CONFIG {
-  private static final Logger log = LogManager.getLogger(TEST_CONFIG.class);
+  private static final Logger log = LoggerFactory.getLogger(TEST_CONFIG.class);
   /**
    * Set the Accumulo config to use for all test classes here.
    */

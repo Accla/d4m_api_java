@@ -8,9 +8,10 @@ import org.apache.accumulo.core.data.Range;
 import org.apache.accumulo.core.data.Value;
 import org.apache.accumulo.core.iterators.IteratorEnvironment;
 import org.apache.hadoop.io.Text;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
-
+//import org.apache.log4j.LogManager;
+//import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import java.io.IOException;
 import java.util.AbstractMap;
 import java.util.Collection;
@@ -24,7 +25,7 @@ import static edu.mit.ll.graphulo.util.GraphuloUtil.EMPTY_TEXT;
  * empty column family, and column qualifier set to the row.
  */
 public class RowToDiagonalApply implements ApplyOp {
-  private static final Logger log = LogManager.getLogger(RowToDiagonalApply.class);
+  private static final Logger log = LoggerFactory.getLogger(RowToDiagonalApply.class);
 
   public static IteratorSetting iteratorSetting(int priority) {
     IteratorSetting itset = new IteratorSetting(priority, ApplyIterator.class);

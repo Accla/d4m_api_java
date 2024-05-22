@@ -19,11 +19,12 @@ import org.apache.accumulo.core.iterators.user.BigDecimalCombiner;
 import org.apache.accumulo.core.iterators.user.ColumnSliceFilter;
 import org.apache.accumulo.core.security.Authorizations;
 import org.apache.hadoop.io.Text;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
+//import org.apache.log4j.LogManager;
+//import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.junit.Test;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.Collections;
@@ -37,7 +38,7 @@ import java.util.TreeSet;
  * Test {@link TwoTableIterator}.
  */
 public class TableMultIteratorTest extends AccumuloTestBase {
-  private static final Logger log = LogManager.getLogger(TableMultIteratorTest.class);
+  private static final Logger log = LoggerFactory.getLogger(TableMultIteratorTest.class);
 
   /**
    * <pre>
@@ -111,7 +112,7 @@ public class TableMultIteratorTest extends AccumuloTestBase {
 
     log.debug("Results of scan on table " + tableNameC + " with A=" + tableNameA + " and BT=" + tableNameBT + ':');
     for (Map.Entry<Key, Value> entry : scanner) {
-      log.debug(entry);
+      log.debug(entry.toString());
       actual.put(entry.getKey(), entry.getValue());
     }
     Assert.assertEquals(expect, actual);
@@ -137,7 +138,7 @@ public class TableMultIteratorTest extends AccumuloTestBase {
 
     log.debug("Results of scan on table " + tableNameC + " with AT=" + tableNameA + " and B=" + tableNameBT + ':');
     for (Map.Entry<Key, Value> entry : scanner) {
-      log.debug(entry);
+      log.debug(entry.toString());
       actual.put(entry.getKey(), entry.getValue());
     }
     Assert.assertEquals(expect, actual);
@@ -227,7 +228,7 @@ public class TableMultIteratorTest extends AccumuloTestBase {
         Map<Key, Integer> actual = new HashMap<>();
         log.info("Scanning tableB " + tableNameB + ":");
         for (Map.Entry<Key, Value> entry : scannerB) {
-          log.info(entry);
+          log.info(entry.toString());
           Key k = entry.getKey(); // don't copy vis or timestamp; we don't care about comparing those
           Key k2 = new Key(k.getRow(), k.getColumnFamily(), k.getColumnQualifier());
           Integer vold = actual.get(k2);
@@ -275,7 +276,7 @@ public class TableMultIteratorTest extends AccumuloTestBase {
         Map<Key, Integer> actual = new HashMap<>();
         log.info("Scanning tableB " + tableNameB + ":");
         for (Map.Entry<Key, Value> entry : scannerB) {
-          log.info(entry);
+          log.info(entry.toString());
           Key k = entry.getKey(); // don't copy vis or timestamp; we don't care about comparing those
           Key k2 = new Key(k.getRow(), k.getColumnFamily(), k.getColumnQualifier());
           Integer vold = actual.get(k2);
@@ -322,7 +323,7 @@ public class TableMultIteratorTest extends AccumuloTestBase {
         Map<Key, Value> actual = new HashMap<>();
         log.info("Scanning tableC " + tableNameC + ":");
         for (Map.Entry<Key, Value> entry : scannerC) {
-          log.info(entry);
+          log.info(entry.toString());
           Key k = entry.getKey(); // don't copy vis or timestamp; we don't care about comparing those
           actual.put(new Key(k.getRow(), k.getColumnFamily(), k.getColumnQualifier()), entry.getValue());
         }

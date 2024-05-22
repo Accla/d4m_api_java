@@ -20,9 +20,10 @@ import org.apache.accumulo.core.data.Value;
 import org.apache.accumulo.core.iterators.IteratorEnvironment;
 import org.apache.accumulo.core.iterators.SortedKeyValueIterator;
 import org.apache.hadoop.io.Text;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
-
+//import org.apache.log4j.LogManager;
+//import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import edu.mit.ll.graphulo.util.PeekingIterator1;
 import edu.mit.ll.graphulo.util.SKVIRowIterator;
 
@@ -33,7 +34,7 @@ import javax.annotation.Nullable;
  * This version works within a OneTable. No TwoTable required.
  */
 public class JaccardMultiplyIterator implements SortedKeyValueIterator<Key,Value> {
-  private static final Logger log = LogManager.getLogger(JaccardMultiplyIterator.class);
+  private static final Logger log = LoggerFactory.getLogger(JaccardMultiplyIterator.class);
 
   public static IteratorSetting iteratorSetting(int priority) {
     return new IteratorSetting(priority, JaccardMultiplyIterator.class);

@@ -20,8 +20,10 @@ import org.apache.accumulo.core.data.Value;
 import org.apache.accumulo.core.security.Authorizations;
 import org.apache.accumulo.core.security.ColumnVisibility;
 import org.apache.hadoop.io.Text;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
+//import org.apache.log4j.LogManager;
+//import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -39,7 +41,7 @@ import static edu.mit.ll.graphulo.util.GraphuloUtil.EMPTY_BYTES;
  * Test features of the Accumulo API that Graphulo relies on.
  */
 public class AccumuloApiTest extends AccumuloTestBase {
-  private static final Logger log = LogManager.getLogger(AccumuloApiTest.class);
+  private static final Logger log = LoggerFactory.getLogger(AccumuloApiTest.class);
 
   /**
    * Tests Accumulo API to make sure Combiners pick up writes to the same key with same and differing timestamps,

@@ -1,7 +1,9 @@
 package edu.mit.ll.graphulo.util;
 
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
+//import org.apache.log4j.LogManager;
+//import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.junit.Ignore;
 import org.junit.AssumptionViolatedException;
 import org.junit.rules.RunRules;
@@ -23,7 +25,7 @@ import java.util.Arrays;
  * If the test passes then log a message saying the bug has been fixed.
  */
 public class KnownBugRunner extends BlockJUnit4ClassRunner {
-  private static final Logger log = LogManager.getLogger(KnownBugRunner.class);
+  private static final Logger log = LoggerFactory.getLogger(KnownBugRunner.class);
 
   public KnownBugRunner(Class<?> klass) throws InitializationError {
     super(klass);

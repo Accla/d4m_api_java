@@ -21,7 +21,8 @@ import org.apache.accumulo.core.data.Range;
 import org.apache.accumulo.core.data.Value;
 import org.apache.accumulo.core.iterators.user.RegExFilter;
 import org.apache.hadoop.io.Text;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
@@ -42,7 +43,7 @@ import java.util.regex.Pattern;
  * @author William Smith
  */
 public class D4mDbQueryAccumulo extends D4mParentQuery {
-	private static final Logger log = Logger.getLogger(D4mDbQueryAccumulo.class);
+	private static final Logger log = LoggerFactory.getLogger(D4mDbQueryAccumulo.class);
 	//	private String tableName = "";
 	private int numberOfThreads = 50;
 	public String rowReturnString = "";

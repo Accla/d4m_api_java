@@ -5,9 +5,10 @@ import com.beust.jcommander.converters.FileConverter;
 import com.google.common.base.Preconditions;
 import com.google.common.io.PatternFilenameFilter;
 import edu.mit.ll.graphulo_ocean.parfile.ParallelFileMapper;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
-
+//import org.apache.log4j.LogManager;
+//import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -25,7 +26,7 @@ import java.util.List;
  * Ex: java -cp "/home/gridsan/dhutchison/gits/graphulo/target/graphulo-1.0.0-SNAPSHOT-all.jar" edu.mit.ll.graphulo_ocean.OceanIngestKMers_csvtoMyria -myriaHost node-109 -inputDir "/home/gridsan/groups/istcdata/datasets/ocean_metagenome/csv_data/parsed_non_overlapped_11_cnt" -K 11 -numthreads 1 -lockDir "/home/gridsan/groups/istcdata/datasets/ocean_metagenome/csv_data/parsed_non_overlapped_11_cnt_upload_claim" -outputDir "/home/gridsan/groups/istcdata/datasets/ocean_metagenome/csv_data/parsed_non_overlapped_11_cnt_upload"
  */
 public class OceanIngestKMers_csvtoMyria {
-  private static final Logger log = LogManager.getLogger(OceanIngestKMers_csvtoMyria.class);
+  private static final Logger log = LoggerFactory.getLogger(OceanIngestKMers_csvtoMyria.class);
 
   public static void main(String[] args) {
     executeNew(args);
@@ -79,7 +80,7 @@ public class OceanIngestKMers_csvtoMyria {
       try {
         Thread.sleep((long)(Math.random() * 1000));
       } catch (InterruptedException e) {
-        e.printStackTrace();
+        log.warn("",e);
       }
       if (!opts.outputDir.exists())
         //noinspection ResultOfMethodCallIgnored

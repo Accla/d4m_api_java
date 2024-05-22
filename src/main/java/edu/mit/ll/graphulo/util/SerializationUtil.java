@@ -14,7 +14,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.OutputStream;
 import java.io.Serializable;
-
+//import java.util.Base64
 /**
  * Partially based from {@link org.apache.commons.lang3.SerializationUtils}.
  *
@@ -29,17 +29,19 @@ public final class SerializationUtil {
 
   public static String serializeWritableBase64(Writable writable) {
     byte[] b = serializeWritable(writable);
-    return org.apache.accumulo.core.util.Base64.encodeBase64String(b);
+    //return org.apache.accumulo.core.util.Base64.encodeBase64String(b);
+    return java.util.Base64.getEncoder().encodeToString(b);
   }
 
   public static void deserializeWritableBase64(Writable writable, String str) {
-    byte[] b = Base64.decodeBase64(str);
+    byte[] b = org.apache.commons.codec.binary.Base64.decodeBase64(str);
     deserializeWritable(writable, b);
   }
 
   public static String serializeBase64(Serializable obj) {
     byte[] b = serialize(obj);
-    return org.apache.accumulo.core.util.Base64.encodeBase64String(b);
+    //return org.apache.accumulo.core.util.Base64.encodeBase64String(b);
+    return java.util.Base64.getEncoder().encodeToString(b);
   }
 
   public static Object deserializeBase64(String str) {

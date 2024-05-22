@@ -16,9 +16,10 @@ import org.apache.commons.collections4.MapIterator;
 import org.apache.commons.collections4.map.AbstractHashedMap;
 import org.apache.commons.collections4.map.HashedMap;
 import org.apache.commons.collections4.map.LRUMap;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
-
+//import org.apache.log4j.LogManager;
+//import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import java.io.IOException;
 import java.util.Collection;
 import java.util.HashMap;
@@ -40,7 +41,7 @@ import java.util.Map;
  * There is an option to use a regular map in place of an LRU map, which may improve performance.
  */
 public class LruCacheIterator implements SortedKeyValueIterator<Key,Value> {
-  private static final Logger log = LogManager.getLogger(LruCacheIterator.class);
+  private static final Logger log = LoggerFactory.getLogger(LruCacheIterator.class);
 
 
   public static final String CAPACITY = "capacity", COMBINER="combiner",

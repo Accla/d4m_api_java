@@ -9,10 +9,12 @@ import org.apache.accumulo.core.data.Range;
 import org.apache.accumulo.core.data.Value;
 import org.apache.accumulo.core.security.Authorizations;
 import org.apache.hadoop.io.Text;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
+//import org.apache.log4j.LogManager;
+//import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.nio.charset.StandardCharsets;
 import java.util.*;
@@ -21,7 +23,7 @@ import java.util.*;
  * Test {@link SmallLargeRowFilter}.
  */
 public class TableFilterTest extends AccumuloTestBase {
-  private static final Logger log = LogManager.getLogger(TableFilterTest.class);
+  private static final Logger log = LoggerFactory.getLogger(TableFilterTest.class);
 
   @Test
   public void testSmallLargeRowFilter() throws TableNotFoundException, AccumuloSecurityException, AccumuloException {

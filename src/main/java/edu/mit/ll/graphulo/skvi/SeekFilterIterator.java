@@ -9,9 +9,10 @@ import org.apache.accumulo.core.data.Value;
 import org.apache.accumulo.core.iterators.IteratorEnvironment;
 import org.apache.accumulo.core.iterators.OptionDescriber;
 import org.apache.accumulo.core.iterators.SortedKeyValueIterator;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
-
+//import org.apache.log4j.LogManager;
+//import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import java.io.IOException;
 import java.util.Collection;
 import java.util.Collections;
@@ -23,7 +24,7 @@ import java.util.Map;
  * This functionality is built into the RemoteWriteIterator.
  */
 public class SeekFilterIterator implements SortedKeyValueIterator<Key, Value>, OptionDescriber {
-  private static final Logger log = LogManager.getLogger(SeekFilterIterator.class);
+  private static final Logger log = LoggerFactory.getLogger(SeekFilterIterator.class);
 
   SortedKeyValueIterator<Key, Value> source;
   private RangeSet rowRanges = new RangeSet();

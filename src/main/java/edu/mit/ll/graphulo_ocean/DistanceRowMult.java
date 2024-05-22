@@ -18,9 +18,10 @@ import org.apache.accumulo.core.iterators.SortedKeyValueIterator;
 import org.apache.accumulo.core.iterators.TypedValueCombiner;
 import org.apache.accumulo.core.security.Authorizations;
 import org.apache.hadoop.io.Text;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
-
+//import org.apache.log4j.LogManager;
+//import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import java.io.IOException;
 import java.util.AbstractMap;
 import java.util.Collections;
@@ -43,7 +44,7 @@ import static edu.mit.ll.graphulo.util.GraphuloUtil.EMPTY_TEXT;
  * Holds degrees in memory.
  */
 public class DistanceRowMult implements RowMultiplyOp {
-  private static final Logger log = LogManager.getLogger(DistanceRowMult.class);
+  private static final Logger log = LoggerFactory.getLogger(DistanceRowMult.class);
 
   private void scanDegreeTable() throws IOException {
     remoteDegTable.seek(new Range(), Collections.<ByteSequence>emptySet(), false);

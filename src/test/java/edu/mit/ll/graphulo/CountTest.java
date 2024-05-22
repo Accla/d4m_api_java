@@ -19,8 +19,10 @@ import org.apache.accumulo.core.data.Value;
 import org.apache.accumulo.core.iterators.LongCombiner;
 import org.apache.accumulo.core.security.Authorizations;
 import org.apache.hadoop.io.Text;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
+//import org.apache.log4j.LogManager;
+//import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -37,7 +39,7 @@ import java.util.TreeSet;
  * Test CountAllIterator and RowCountingIterator
  */
 public class CountTest extends AccumuloTestBase {
-  private static final Logger log = LogManager.getLogger(CountTest.class);
+  private static final Logger log = LoggerFactory.getLogger(CountTest.class);
 
   @Test
   public void testRowCountingIterator() throws TableExistsException, AccumuloSecurityException, AccumuloException, TableNotFoundException, IOException {

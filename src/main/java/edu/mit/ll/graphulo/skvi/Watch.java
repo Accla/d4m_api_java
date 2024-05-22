@@ -1,8 +1,9 @@
 package edu.mit.ll.graphulo.skvi;
 
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
-
+//import org.apache.log4j.LogManager;
+//import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import java.util.EnumMap;
 
 /**
@@ -10,7 +11,7 @@ import java.util.EnumMap;
  * Based on {@link org.apache.accumulo.core.util.StopWatch}.
  */
 public class Watch<K extends Enum<K>> {
-  private static final Logger log = LogManager.getLogger(Watch.class);
+  private static final Logger log = LoggerFactory.getLogger(Watch.class);
   public static volatile boolean enableTrace = false;
 
   static {

@@ -8,9 +8,10 @@ import org.apache.accumulo.core.data.Range;
 import org.apache.accumulo.core.data.Value;
 import org.apache.accumulo.core.iterators.IteratorEnvironment;
 import org.apache.accumulo.core.iterators.SortedKeyValueIterator;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
-
+//import org.apache.log4j.LogManager;
+//import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import java.io.IOException;
 import java.util.Collection;
 import java.util.HashMap;
@@ -20,7 +21,8 @@ import java.util.Map;
  * Apply an ApplyOp to every entry from the source iterator.
  */
 public class ApplyIterator implements SortedKeyValueIterator<Key, Value> {
-  private static final Logger log = LogManager.getLogger(ApplyIterator.class);
+  //private static final Logger log = LogManager.getLogger(ApplyIterator.class);
+  private static final Logger log = LoggerFactory.getLogger(ApplyIterator.class);
 
   public static final String APPLYOP = "applyOp";
   public static final String IGNORE_SEEK_EXCLUSIVE_START = "ignoreSeekExclusiveStart";

@@ -9,9 +9,10 @@ import org.apache.accumulo.core.client.Instance;
 import org.apache.accumulo.core.client.ZooKeeperInstance;
 import org.apache.accumulo.core.client.security.tokens.AuthenticationToken;
 import org.apache.accumulo.core.client.security.tokens.PasswordToken;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
-
+//import org.apache.log4j.LogManager;
+//import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -27,7 +28,7 @@ import java.io.IOException;
  * addsplits C T G
  */
 public class OceanIngestKMers {
-  private static final Logger log = LogManager.getLogger(OceanIngestKMers.class);
+  private static final Logger log = LoggerFactory.getLogger(OceanIngestKMers.class);
 
   public static void main(String[] args) {
     executeNew(args);

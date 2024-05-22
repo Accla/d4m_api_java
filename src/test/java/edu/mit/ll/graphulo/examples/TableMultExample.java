@@ -18,8 +18,10 @@ import org.apache.accumulo.core.iterators.Combiner;
 import org.apache.accumulo.core.iterators.LongCombiner;
 import org.apache.accumulo.core.iterators.user.SummingCombiner;
 import org.apache.accumulo.core.security.Authorizations;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
+//import org.apache.log4j.LogManager;
+//import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.junit.Test;
 
 import java.io.FileNotFoundException;
@@ -35,7 +37,7 @@ import java.util.Map;
  * (3) count the number of entries in ex10C.
  */
 public class TableMultExample extends AccumuloTestBase {
-  private static final Logger log = LogManager.getLogger(TableMultExample.class);
+  private static final Logger log = LoggerFactory.getLogger(TableMultExample.class);
 
   /**
    * Corresponds to saved files in the test/java/resources/data folder.

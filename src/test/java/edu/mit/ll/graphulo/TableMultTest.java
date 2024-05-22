@@ -20,8 +20,10 @@ import org.apache.accumulo.core.data.Value;
 import org.apache.accumulo.core.security.Authorizations;
 import org.apache.accumulo.core.security.SystemPermission;
 import org.apache.hadoop.io.Text;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
+//import org.apache.log4j.LogManager;
+//import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.junit.Assert;
 import org.junit.Assume;
 import org.junit.Test;
@@ -43,7 +45,7 @@ import java.util.TreeSet;
  * Test TableMult in {@link Graphulo}.
  */
 public class TableMultTest extends AccumuloTestBase {
-  private static final Logger log = LogManager.getLogger(TableMultTest.class);
+  private static final Logger log = LoggerFactory.getLogger(TableMultTest.class);
 
   /**
    * <pre>
@@ -114,7 +116,7 @@ public class TableMultTest extends AccumuloTestBase {
       }
       scanner.close();
       Assert.assertEquals(expectT, actualT);
-    }
+    } 
 
     conn.tableOperations().delete(tAT);
     conn.tableOperations().delete(tB);

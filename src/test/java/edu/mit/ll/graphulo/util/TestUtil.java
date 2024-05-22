@@ -16,8 +16,10 @@ import org.apache.accumulo.core.data.Range;
 import org.apache.accumulo.core.data.Value;
 import org.apache.accumulo.core.security.Authorizations;
 import org.apache.hadoop.io.Text;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
+//import org.apache.log4j.LogManager;
+//import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.junit.Assert;
 
 import java.nio.charset.StandardCharsets;
@@ -31,7 +33,7 @@ import java.util.SortedSet;
  * Helper methods for testing.
  */
 public class TestUtil {
-  private static final Logger log = LogManager.getLogger(TestUtil.class);
+  private static final Logger log = LoggerFactory.getLogger(TestUtil.class);
 
   private TestUtil() {
   }

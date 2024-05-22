@@ -23,8 +23,11 @@ import org.apache.accumulo.core.iterators.user.ColumnSliceFilter;
 import org.apache.accumulo.core.iterators.user.WholeRowIterator;
 import org.apache.accumulo.core.security.Authorizations;
 import org.apache.hadoop.io.Text;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
+//import org.apache.log4j.LogManager;
+//import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -46,7 +49,7 @@ import java.util.TreeSet;
  * Test RemoteSourceIterator and RemoteMergeIterator.
  */
 public class RemoteIteratorTest extends AccumuloTestBase {
-  private static final Logger log = LogManager.getLogger(RemoteIteratorTest.class);
+  private static final Logger log = LoggerFactory.getLogger(RemoteIteratorTest.class);
 
   /**
    * Also test setUniqueColQs.

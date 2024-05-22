@@ -8,7 +8,8 @@ import org.apache.accumulo.core.data.Mutation;
 import org.apache.accumulo.core.data.Value;
 import org.apache.accumulo.core.security.ColumnVisibility;
 import org.apache.hadoop.io.Text;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import edu.mit.ll.d4m.db.cloud.D4mInsertBase;
 import edu.mit.ll.d4m.db.cloud.util.D4mQueryUtil;
@@ -22,7 +23,7 @@ import java.util.Comparator;
  *
  */
 public class AccumuloInsert extends D4mInsertBase {
-	private static final Logger log = Logger.getLogger(AccumuloInsert.class);
+	private static final Logger log = LoggerFactory.getLogger(AccumuloInsert.class);
 
 	AccumuloConnection connection=null;
 	public AccumuloInsert() {
@@ -51,7 +52,7 @@ public class AccumuloInsert extends D4mInsertBase {
 		try {
 			makeAndAddMutations();
 		} catch (MutationsRejectedException | TableNotFoundException e) {
-			log.error(e);
+			log.error("",e);
 			throw e;
 		}
 

@@ -10,9 +10,10 @@ import org.apache.accumulo.core.data.Value;
 import org.apache.accumulo.core.iterators.IteratorEnvironment;
 import org.apache.accumulo.core.iterators.IteratorUtil;
 import org.apache.accumulo.core.iterators.SortedKeyValueIterator;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
-
+//import org.apache.log4j.LogManager;
+//import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Deque;
@@ -30,7 +31,7 @@ import java.util.Map;
  * @see edu.mit.ll.graphulo.skvi.DynamicIterator
  */
 public class DynamicIteratorSetting {
-  private static final Logger log = LogManager.getLogger(DynamicIteratorSetting.class);
+  private static final Logger log = LoggerFactory.getLogger(DynamicIteratorSetting.class);
 
   private Deque<IteratorSetting> iteratorSettingList = new LinkedList<>();
   private int diPriority;

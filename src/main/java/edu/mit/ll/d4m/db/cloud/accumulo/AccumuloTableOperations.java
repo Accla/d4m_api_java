@@ -42,7 +42,8 @@ import org.apache.accumulo.core.trace.thrift.TInfo;
 import org.apache.accumulo.core.util.ColumnFQ;
 import org.apache.accumulo.core.util.Pair;
 import org.apache.hadoop.io.Text;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.apache.thrift.TException;
 
 import edu.mit.ll.cloud.connection.ConnectionProperties;
@@ -58,7 +59,7 @@ import edu.mit.ll.d4m.db.cloud.util.D4mQueryUtil;
  *
  */
 public class AccumuloTableOperations {
-	private static final Logger log = Logger.getLogger(AccumuloTableOperations.class);
+	private static final Logger log = LoggerFactory.getLogger(AccumuloTableOperations.class);
 
 	AccumuloConnection connection= null;
 	ConnectionProperties connProp= null;
@@ -100,7 +101,7 @@ public class AccumuloTableOperations {
 			List<TabletStats> tabletStatsList = getTabletStatsList(tserverStatusList,  tableNames);
 			retval = getNumberOfEntries_help(tabletStatsList);
 		} catch (D4mException | TException e) {
-			log.warn(e);
+			log.warn("",e);
 		}
 
 		// Connect to each tserver and get numEntries from each tableName
@@ -132,7 +133,7 @@ public class AccumuloTableOperations {
 			List<TabletServerStatus> tserverStatusList = getTabletServers();
 			retval = getTabletStatsList(tserverStatusList,  tableNames);
 		} catch ( D4mException | TException e)  {
-			log.warn(e);    
+			log.warn("",e);    
 		}
 		// Connect to each tserver and get numEntries from each tableName
 		//    Get the TabletStat
@@ -152,7 +153,7 @@ public class AccumuloTableOperations {
 
 			list.addAll(mmi.getTServerInfo());
 		} catch(D4mException e) {
-			log.warn(e);
+			log.warn("",e);
 		} finally {
 			ThriftUtil.returnClient(client);
 		}
@@ -196,7 +197,7 @@ public class AccumuloTableOperations {
 			}
 
 		} catch (TException e) {
-			log.warn(e);
+			log.warn("",e);
 		} finally {
 			ThriftUtil.returnClient((MasterClientService.Client)masterClient);
 			ThriftUtil.returnClient((TabletClientService.Client)tabClient);

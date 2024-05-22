@@ -12,9 +12,10 @@ import org.apache.accumulo.core.iterators.SortedKeyValueIterator;
 import org.apache.accumulo.core.iterators.TypedValueCombiner;
 import org.apache.accumulo.core.iterators.user.BigDecimalCombiner;
 import org.apache.hadoop.io.WritableComparator;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
-
+//import org.apache.log4j.LogManager;
+//import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.nio.charset.StandardCharsets;
@@ -29,7 +30,7 @@ import java.util.SortedMap;
  * Expects AT as Atable, A as Btable.
  */
 public class LineRowMultiply implements RowMultiplyOp {
-  private static final Logger log = LogManager.getLogger(LineRowMultiply.class);
+  private static final Logger log = LoggerFactory.getLogger(LineRowMultiply.class);
 
   public static final String SEPARATOR = "separator",
       ISDIRECTED = "isDirected",

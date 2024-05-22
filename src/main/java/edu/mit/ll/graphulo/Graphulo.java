@@ -101,9 +101,10 @@ import org.apache.hadoop.io.Text;
 import org.apache.htrace.Sampler;
 import org.apache.htrace.Trace;
 import org.apache.htrace.TraceScope;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
-
+//import org.apache.log4j.LogManager;
+//import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import javax.annotation.Nonnull;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
@@ -136,7 +137,7 @@ import static java.util.Collections.emptyList;
  * and {@link DistributedTrace#disable()}.
  */
 public class Graphulo {
-  private static final Logger log = LogManager.getLogger(Graphulo.class);
+  private static final Logger log = LoggerFactory.getLogger(Graphulo.class);
   private static final Value VALUE_ONE = new Value("1".getBytes(UTF_8));
 
   public static final int DEFAULT_COMBINER_PRIORITY = 6;

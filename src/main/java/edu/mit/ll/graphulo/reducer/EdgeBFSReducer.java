@@ -4,9 +4,10 @@ import edu.mit.ll.graphulo.util.GraphuloUtil;
 import org.apache.accumulo.core.data.Key;
 import org.apache.accumulo.core.data.Value;
 import org.apache.accumulo.core.iterators.IteratorEnvironment;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
-
+//import org.apache.log4j.LogManager;
+//import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.HashSet;
@@ -18,7 +19,7 @@ import java.util.Map;
  * Pass as an option a D4M string of all acceptable prefixes, e.g., "inA|,inB|,".
  */
 public class EdgeBFSReducer extends ReducerSerializable<HashSet<String>> {
-  private static final Logger log = LogManager.getLogger(EdgeBFSReducer.class);
+  private static final Logger log = LoggerFactory.getLogger(EdgeBFSReducer.class);
 
   public static final String IN_COLUMN_PREFIX = "inColumnPrefixes";
   private byte[][] inColumnPrefixes;

@@ -33,9 +33,10 @@ import org.apache.accumulo.core.security.ColumnVisibility;
 import org.apache.accumulo.core.trace.Trace;
 import org.apache.hadoop.io.Text;
 import org.apache.htrace.TraceScope;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
-
+//import org.apache.log4j.LogManager;
+//import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.charset.StandardCharsets;
@@ -59,7 +60,7 @@ import static java.nio.charset.StandardCharsets.UTF_8;
  * It may confuse the iterator into thinking it has already processed some entries.
  */
 public class RemoteWriteIterator implements OptionDescriber, SortedKeyValueIterator<Key, Value> {
-  private static final Logger log = LogManager.getLogger(RemoteWriteIterator.class);
+  private static final Logger log = LoggerFactory.getLogger(RemoteWriteIterator.class);
 
   private final static AtomicInteger instCnt = new AtomicInteger(0);
   private final int thisInst;

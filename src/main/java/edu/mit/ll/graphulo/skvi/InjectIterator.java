@@ -2,9 +2,10 @@ package edu.mit.ll.graphulo.skvi;
 
 import org.apache.accumulo.core.data.*;
 import org.apache.accumulo.core.iterators.*;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
-
+//import org.apache.log4j.LogManager;
+//import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import java.io.IOException;
 import java.util.*;
 
@@ -12,7 +13,7 @@ import java.util.*;
  * For testing; interleaves data from a {@link BadHardListIterator} with parent iterator entries.
  */
 public class InjectIterator extends BranchIterator implements OptionDescriber {
-  private static final Logger log = LogManager.getLogger(InjectIterator.class);
+  private static final Logger log = LoggerFactory.getLogger(InjectIterator.class);
 
 
   @Override
